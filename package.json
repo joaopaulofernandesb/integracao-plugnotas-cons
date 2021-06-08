@@ -1,0 +1,13 @@
+{
+  "name": "interacao-plugnotas-consumidor",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Alessandro",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.922.0",
+    "axios": "^0.21.1",
+    "dotenv": "^10.0.0",
+    "mongoose": "^5.12.13"
+  }
+}
