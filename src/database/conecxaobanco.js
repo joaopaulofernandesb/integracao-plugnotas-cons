@@ -1,8 +1,10 @@
 const mongoose = require('mongoose')
+const { Url_banco } = require('../config/config')
+
 
 const connect = () => {
     try {
-        mongoose.connect('mongodb+srv://ale:013345@cluster0.8x3wq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
+        mongoose.connect(Url_banco, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             useCreateIndex: true,

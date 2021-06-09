@@ -9,5 +9,8 @@
     "axios": "^0.21.1",
     "dotenv": "^10.0.0",
     "mongoose": "^5.12.13"
+  },
+  "scripts": {
+    "start": "nodemon index.js"
   }
 }

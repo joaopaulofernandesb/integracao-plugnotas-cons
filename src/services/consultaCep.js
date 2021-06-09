@@ -9,7 +9,7 @@ async function consultaCep(cep) {
             method: 'get',
             url: `${url}/${cep}/json/`,
         });
-        console.log(response.data)
+        // console.log(response.data)
 
         return response.data;
     } catch (error) {
