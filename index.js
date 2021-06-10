@@ -8,7 +8,7 @@ const { updateMensage } = require('./src/services/updatemessage')
 
 const verificaMensagem = response =>
     response.Messages? response.Messages.length !== 0 : false
-    
+
 const start = async () => {
     const params = receberFila()
 
@@ -22,13 +22,15 @@ const start = async () => {
         db.connect()
 
         const { cep } = await User.findOne({_id: id})
-        // console.log(cep)
 
         const data = await consultaCep(cep)
         const  atualizaStatus = data.erro?{status:"REJEITADO"}:{status:"CONCLUIDO", data:{...data}}
         if(data.erro){
-            console.log('opps')
-            await updateMensage(id, atualizaStatus)   
+            console.log('Status atualizado para REJEITADO, cep invalido !')
+            await updateMensage(id, atualizaStatus)
+        }else{
+            console.log('Status atualizado para CONCLUIDO !')
+            await updateMensage(id, atualizaStatus)
         }
 
         await updateMensage(id, atualizaStatus)
@@ -41,9 +43,9 @@ const start = async () => {
         await deleteSqs(deletParams)
 
         if(!id) return start()
-        
+
     } catch (error) {
-        console.log(error)        
+        console.log(error)
     }
     return start()
 }
