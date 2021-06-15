@@ -14,6 +14,7 @@ const start = async () => {
 
     try {
         const response = await sqs.receiveMessage(params).promise()
+        // console.log(response)
         if(!verificaMensagem(response)) return start()
 
         const [message] = response.Messages
@@ -46,6 +47,7 @@ const start = async () => {
 
     } catch (error) {
         console.log(error)
+        return res.status(400).json({error: true, message:'Não foi possivel realizar atualização !'})
     }
     return start()
 }
@@ -65,3 +67,4 @@ const deleteSqs = async (deleteParams) => {
 }
 
 main()
+module.exports = main

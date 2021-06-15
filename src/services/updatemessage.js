@@ -1,5 +1,4 @@
 const User = require('../models/user');
-// const db = require('./')
 
 const updateMensage = async (id, atualizaStatus) => {
   await User.updateOne({ _id: id }, atualizaStatus, {
@@ -7,7 +6,6 @@ const updateMensage = async (id, atualizaStatus) => {
     setDefaultsOnInsert: true,
   });
 
-  // console.log(id, status, data)
 };
 
 module.exports = { updateMensage };

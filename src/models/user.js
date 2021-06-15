@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const UserSchema = new mongoose.Schema({
   cep: {
-    type: String,
+    type: Number,
     unique: true,
     require: true,
   },
@@ -12,7 +12,6 @@ const UserSchema = new mongoose.Schema({
     default: 'PENDENTE',
   },
   data: {
-    cep: { type: String },
     logradouro: {
       type: String,
     },
