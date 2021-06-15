@@ -29,9 +29,6 @@ const start = async () => {
         if(data.erro){
             console.log('Status atualizado para REJEITADO, cep invalido !')
             await updateMensage(id, atualizaStatus)
-        }else{
-            console.log('Status atualizado para CONCLUIDO !')
-            await updateMensage(id, atualizaStatus)
         }
 
         await updateMensage(id, atualizaStatus)
